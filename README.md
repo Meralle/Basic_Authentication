@@ -38,6 +38,5 @@
  
   - npm run start 
   
-  (images/log-in.png)
 
 
