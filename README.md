@@ -37,5 +37,7 @@
  ## Run the Terminal
  
   - npm run start 
+  
+  (images/log-in.png)
 
 
