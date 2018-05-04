@@ -15,7 +15,7 @@
    
   2. copy some of dependencies that required in your new folder and remove the others
   
-    -  ```npm install```
+    -   ```npm install```
    
   3.  install  bable
   ``` https://babeljs.io/docs/plugins/transform-object-rest-spread ```
