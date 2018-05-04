@@ -14,6 +14,7 @@
   1. install package.json ``` npm init```
    
   2. copy some of dependencies that required in your new folder and remove the others
+  
    ```npm install```
    
   3.  install  bable
