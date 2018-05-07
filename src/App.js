@@ -2,14 +2,15 @@ import React from 'react';
 import Login from './Components/Login';
 import Home  from './Components/Home';
 import Admin from './Components/Admin';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect, prompt } from 'react-router-dom';
 
 class App extends React.Component {
       constructor(props){
         super(props);
           this.state={
             username:"",
-            password:""
+            password:"",
+            loggedin:false
 
 
   }
@@ -25,13 +26,13 @@ class App extends React.Component {
       if(user.email === this.state.username && this.state.password){
         this.setState({loggedin: true})
         //alert('valid authentication')
-      } else {
-        alert('invalid email or password')
-      }
-       // if(this.state.loggedin === true) {
-       //  return <Redirect to="/admin"/>
-       // } else {
-       //  return <Redirect to="/login"/>
+        } else {
+          alert('invalid email or password')
+        }
+         // if(this.state.loggedin === true) {
+         //  return <Redirect to="/admin"/>
+         // } else {
+         //  return <Redirect to="/login"/>
 
        // }
 
@@ -45,24 +46,24 @@ class App extends React.Component {
     } else {
       this.setState({ password : value })
     }
-}
+} 
 
-     
-
-    render(){ 
+    render(){   
+      
     //   if(this.state.loggedin === true){ 
     //   return <Redirect to="/admin"/>
     // }
     //  else {
     //   return <Redirect to="/login"/>
     // }
+    
       return(
         <div>
           <Switch>
             <Route exact path='/' component={Home}/>
-            <Route exact path='/admin' component={Admin}/>
-             {/* ( this.state.loggedin ? <Redirect to="/admin"/> : <Redirect to="/login"/> )
-            */}
+            <Route exact path='/admin' render={() =>
+            ( this.state.loggedin === true ? <Redirect to="/admin"/> : <Redirect to="/"/> )}/>
+          
 
             <Route exact path='/login' render={() => 
               <Login 
@@ -70,6 +71,7 @@ class App extends React.Component {
               changeInput={this.changeInput}
               value={this.state.username}
               loggedin={this.state.loggedin}/>
+
              }/>
           </Switch>       
         </div>
