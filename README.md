@@ -39,7 +39,7 @@
  
   - npm run start
   
-  ![screenshot](./images/log-in.png)
+  ![screenshot](./images/basic.png)
   
 
 
