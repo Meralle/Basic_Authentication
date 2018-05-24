@@ -14,7 +14,7 @@ class Login extends React.Component {
   	return(
   		<div>
   			<div className="container">
-  				<h1><strong>LOG -IN</strong></h1>
+  				<h1><strong>LOG-IN</strong></h1>
 					<form action="#" className="addTodo form-inline row">
 						<input className="inputs" type="text" aria-describedby="emailHelp" placeholder="username" id="username"  onChange={this.props.changeInput}/>
 						<input className="inputs" type="text" aria-describedby="emailHelp" placeholder="Email" id="password" onChange={this.props.changeInput} />

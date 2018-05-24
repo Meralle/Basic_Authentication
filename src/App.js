@@ -23,20 +23,18 @@ class App extends React.Component {
       e.preventDefault();
       const user = {email: 'admin@me.com', password:'12345'}
       // const userdata = {email:"", password:""}
-      if(user.email === this.state.username && this.state.password){
+      if(user.email === this.state.username && user.password === this.state.password){
         this.setState({loggedin: true})
         //alert('valid authentication')
         } else {
           alert('invalid email or password')
         }
-         // if(this.state.loggedin === true) {
-         //  return <Redirect to="/admin"/>
-         // } else {
-         //  return <Redirect to="/login"/>
-
-       // }
-
-        
+       //   if(this.state.loggedin === true) {
+       //    return <Redirect to="/admin"/>
+       //   } else {
+       //    return <Redirect to="/login"/>
+       // } 
+      localStorage.getItem("username", JSON.parse(value))      
 }
     changeInput(e){
       console.log(e.target.id)
@@ -46,10 +44,10 @@ class App extends React.Component {
     } else {
       this.setState({ password : value })
     }
+     // localStorage.setItem("username", JSON.stringify(value))
 } 
 
-    render(){   
-      
+    render(){ 
     //   if(this.state.loggedin === true){ 
     //   return <Redirect to="/admin"/>
     // }
@@ -61,10 +59,9 @@ class App extends React.Component {
         <div>
           <Switch>
             <Route exact path='/' component={Home}/>
-            <Route exact path='/admin' render={() =>
+            <Route exact path='/admin'  component={Admin}/> {/*render={() =>
             ( this.state.loggedin === true ? <Redirect to="/admin"/> : <Redirect to="/"/> )}/>
-          
-
+          */}
             <Route exact path='/login' render={() => 
               <Login 
               handleAddText={this.handleAddText}
@@ -73,6 +70,7 @@ class App extends React.Component {
               loggedin={this.state.loggedin}/>
 
              }/>
+             
           </Switch>       
         </div>
 
